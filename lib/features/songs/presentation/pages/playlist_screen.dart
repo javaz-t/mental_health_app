@@ -63,10 +63,7 @@ class PlaylistScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                   onTap: () {
-                    var x = SongRemoteDataSourceImpl(client: http.Client());
-                    x.getAllSongs();
-
-                    Navigator.push(
+                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => SongPlayerScreen(song: state.songs[index],),

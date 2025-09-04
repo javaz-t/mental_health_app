@@ -4,11 +4,11 @@ class SongModel extends Song {
 
 
   SongModel({
-    required  String title,
-    required int id,
-    required String author,
-    required String songLink,
-  }) : super(title:title, id: id, author: author, songLink:songLink);
+    required  super.title,
+    required super.id,
+    required super.author,
+    required super.songLink,
+  });
 
   // Factory constructor to create Song from JSON
   factory SongModel.fromJson(Map<String, dynamic> json) {

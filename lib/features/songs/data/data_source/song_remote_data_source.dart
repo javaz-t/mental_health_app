@@ -12,7 +12,7 @@ class SongRemoteDataSourceImpl implements SongRemoteDataSource {
 
   SongRemoteDataSourceImpl({required this.client});
   @override
-  Future<List<SongModel>> getAllSongs() async {
+  Future<List<SongModel>>   getAllSongs() async {
     final response = await client.get(
       Uri.parse('http://10.0.2.2:6000/songs/all'),
     ); // use 10.0.2.2 for emulator instead of local host

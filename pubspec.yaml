@@ -39,6 +39,7 @@ dependencies:
   audio_video_progress_bar: ^2.0.3
   http: ^1.5.0
   just_audio: ^0.10.4
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:

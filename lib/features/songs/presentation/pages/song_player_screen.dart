@@ -20,6 +20,8 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
   void initState() {
     _audioPlayer = AudioPlayer();//todo: need to add these songs in in the db
     _audioPlayer.setUrl("https://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3");
+       _audioPlayer.play();
+
     super.initState();
   }
 
@@ -96,11 +98,11 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
             ),
             const SizedBox(height: 16),
             Text(
-              "widget.song.title",
+              widget.song.title,
               style: Theme.of(context).textTheme.labelLarge,
             ),
             Text(
-              'By :  widget.song.author}',
+              'By :  ${widget.song.author}',
               style: Theme.of(context).textTheme.labelSmall,
             ),
             const Spacer(),
@@ -136,6 +138,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                   final playerState =  snapshot.data;
                   final processingState = playerState?.processingState??ProcessingState.idle;
                   final playing = playerState?.playing??false;
+
                   if(processingState==ProcessingState.loading||processingState==ProcessingState.buffering){
                     return Center(child:CircularProgressIndicator(),);
                   }else if(!playing){
@@ -144,7 +147,7 @@ class _SongPlayerScreenState extends State<SongPlayerScreen> {
                       onPressed: () {
                         togglePlayPause();
                       },
-                      icon: Icon(Icons.pause_circle_rounded),
+                      icon: Icon(Icons.play_circle),
                       color: DefaultColors.pink,
                     );
                   }else if (processingState != ProcessingState.completed){
